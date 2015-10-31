@@ -111,10 +111,7 @@
          
 		    <!--font color = "white"><h1 style="float:right">OnlineKalakar.com</h1></font-->
             
-            
-            <form name = "myForm3" action="index.php" method="post" enctype="multipart/form-data">
-		       <input type="submit" class="col-md-1 btn btn-warning" style="margin-left:10px;" name="commit3" value="BACK" class="btn btn-danger"  /> 
-               </form> 
+       
             <button class="btn btn-success col-md-1 col-md-offset-7	" data-toggle="modal" data-target="#myModal">Login</button>
             <button class="btn btn-danger col-md-1" style="margin-left:10px;" data-toggle="modal" data-target="#myModal2">Sign Up</button>
           
