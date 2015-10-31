@@ -12,6 +12,41 @@
 <body>
 	<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type="text/javascript">
+    function validateForm()
+    {
+    var x=document.forms["myForm1"]["login11"].value;
+	var y=document.forms["myForm1"]["login12"].value;
+	var z=document.forms["myForm1"]["login13"].value;
+	var p1=document.forms["myForm1"]["login15"].value;
+	var p2=document.forms["myForm1"]["login16"].value;
+    if (x.length==0)
+      {
+      alert('Please enter your username');
+      return false;
+      }
+	else if(y.length==0)
+	{
+		alert('Please enter your name');
+      return false;
+	}
+	else if(z.length==0)
+	{
+		alert('Please enter your contact no');
+      return false;
+	}
+	else if(p1!=p2)
+	{
+		alert('Passwords dont match');
+      return false;
+	}
+	else
+	{
+		return true;
+	}
+    }
+    </script>
+	<form name = "myForm" action="index.php" method="post" enctype="multipart/form-data">
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModal-label" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -20,7 +55,6 @@
                     <h3 class="modal-title" id="myModal-label">Login</h3>
                 </div>
                 <div class="modal-body">
-                   <form action="index.php" method="post" enctype="multipart/form-data">
   <section class="container">
     <div class="login">
         <p><input type="text" name="login" value="" placeholder="Username"></p>
@@ -34,12 +68,13 @@
                 
                     <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
                     <input type="submit" name="commit" value="Login" class="btn btn-success" />
-                    </form>
+                    
                 </div>
             </div>
         </div>
     </div>
-    
+	</form>
+    <form name = "myForm1" action="index.php" method="post" enctype="multipart/form-data" onsubmit="return validateForm();">
      <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModal2-label" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -48,15 +83,25 @@
                     <h3 class="modal-title" id="myModal2-label">Sign Up</h3>
                 </div>
                 <div class="modal-body">
-                    <p>Are you sure you want to submit this album?</p>
+				<center>
+                    <p><input type="text" name="login11" value="" placeholder="Enter your Username"></p>
+					<p><input type="text" name="login12" value="" placeholder="Name"></p>
+					<p><input type="text" name="login13" value="" placeholder="Contact No"></p>
+					<p><textarea name = "area1" placeholder="Enter Description" rows="4" cols="50"></textarea></p>
+                    <p><input type="password" name="login15" value="" placeholder="Password"></p>
+   				    <p><input type="password" name="login16" value="" placeholder="Confirm Password"></p>
+					Select image to upload:
+                    <input type="file" name="fileToUpload" id="fileToUpload">
+					</center>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                    <button type="button" class="btn btn-primary">Sign Up</button>
+                    <input type="submit" name="commit2" value="Signup" class="btn btn-success"  />
                 </div>
             </div>
         </div>
     </div>
+	</form>
     
     
     <div class="container" style="background-color:#000;padding-bottom:10px;border:3px dotted #FFFFFF;">
@@ -146,7 +191,22 @@
 		 }
        }
 	}
+	mysqli_close($conn);
 }
+if(isset($_POST['commit2'])){
+	$target_file =  $_FILES["fileToUpload"]["name"];
+    $imgi = $_FILES["fileToUpload"]["tmp_name"];
+	move_uploaded_file($imgi,'images/'.$target_file);
+	$hostname = 'localhost';
+    $username = 'root';
+    $password = '';
+    $dbname = 'hack';
+    $conn = mysqli_connect($hostname, $username, $password, $dbname);
+    $sql = "INSERT INTO `login`(`user_id`, `user_name`, `password`, `description`, `contact_no`, `impath`) VALUES ('".$_POST['login11']."','".$_POST['login12']."','".$_POST['login15']."','".$_POST['area1']."','".$_POST['login13']."','".$target_file."')";
+    $result = mysqli_query($conn, $sql);
+	mysqli_close($conn);
+}
+
 ?>
 </body>
 </html>
