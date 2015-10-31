@@ -3,13 +3,13 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Savvy Kalakar</title>
-	<link rel="stylesheet" type="text/css" href="css/style1.css"/>
-	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+	<link rel="stylesheet" type="text/css" href="../css/style1.css"/>
+	<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css"/>
 </head>
 
 <body>
-	<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
-	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="../js/jquery-2.1.4.min.js"></script>
+	<script type="text/javascript" src="../js/bootstrap.min.js"></script>
 	<script type="text/javascript">
     function validateForm()
     {
@@ -44,7 +44,7 @@
 	}
     }
     </script>
-	<form name = "myForm" action="index.php" method="post" enctype="multipart/form-data">
+	<form name = "myForm" action="buyer.php" method="post" enctype="multipart/form-data">
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModal-label" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -72,7 +72,7 @@
         </div>
     </div>
 	</form>
-    <form name = "myForm1" action="index.php" method="post" enctype="multipart/form-data" onsubmit="return validateForm();">
+    <form name = "myForm1" action="buyer.php" method="post" enctype="multipart/form-data" onsubmit="return validateForm();">
      <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModal2-label" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -84,8 +84,6 @@
 				<center>
                     <p><input type="text" name="login11" value="" placeholder="Enter your Username"></p>
 					<p><input type="text" name="login12" value="" placeholder="Name"></p>
-					<p><input type="text" name="login13" value="" placeholder="Contact No"></p>
-					<p><textarea name = "area1" placeholder="Enter Description" rows="4" cols="50"></textarea></p>
                     <p><input type="password" name="login15" value="" placeholder="Password"></p>
    				    <p><input type="password" name="login16" value="" placeholder="Confirm Password"></p>
 					Select image to upload:
@@ -102,16 +100,31 @@
 	</form>
     
     
+    
+    
+    
+    
+    
+    
     <div class="container" style="background-color:#000;padding-bottom:10px;border:3px dotted #FFFFFF;">
         <div class="row" style="margin-top:10px;">
+         
 		    <!--font color = "white"><h1 style="float:right">OnlineKalakar.com</h1></font-->
             
-		       
-            <button class="btn btn-success col-md-1 col-md-offset-7" data-toggle="modal" data-target="#myModal">Login</button>
+            
+            <form name = "myForm3" action="index.php" method="post" enctype="multipart/form-data">
+		       <input type="submit" class="col-md-1 btn btn-warning" style="margin-left:10px;" name="commit3" value="BACK" class="btn btn-danger"  /> 
+               </form> 
+            <button class="btn btn-success col-md-1 col-md-offset-7	" data-toggle="modal" data-target="#myModal">Login</button>
             <button class="btn btn-danger col-md-1" style="margin-left:10px;" data-toggle="modal" data-target="#myModal2">Sign Up</button>
-            <form name = "myForm5" action="index.php" method="post" enctype="multipart/form-data">
-            <input type="submit" class="col-md-2 btn btn-warning" style="margin-left:10px;" name="commit5" value="BUYERS HERE" class="btn btn-danger"  /> 
-            </form>
+          
+    
+	
+            
+            
+           
+          
+  
         </div>
     </div>
     
@@ -127,35 +140,35 @@
             </ol>
             <div class="carousel-inner">
                 <div class="item active">
-                    <center><img alt="First slide" src="images/art1.jpg" width="640" height="500"></center>
+                    <center><img alt="First slide" src="../images/art1.jpg" width="640" height="500"></center>
                     <div class="carousel-caption">
                         <h3>Caption heading 1</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                     </div>
                 </div>
                 <div class="item">
-                    <center><img alt="Second slide" src="images/art2.jpg" width="640" height="500"></center>
+                    <center><img alt="Second slide" src="../images/art2.jpg" width="640" height="500"></center>
                     <div class="carousel-caption">
                         <h3>Caption heading 2</h3>
                         <p>Morbi eget libero quis metus consectetur semper.</p>
                     </div>
                 </div>
                 <div class="item">
-                    <center><img alt="Third slide" src="images/art3.JPG" width="640" height="500"></center>
+                    <center><img alt="Third slide" src="../images/art3.JPG" width="640" height="500"></center>
                     <div class="carousel-caption">
                         <h3>Caption heading 3</h3>
                         <p>Suspendisse ullamcorper massa eget eleifend iaculis.</p>
                     </div>
                 </div>
                 <div class="item">
-                    <center><img alt="Fourth slide" src="images/art4.jpg" width="640" height="500"></center>
+                    <center><img alt="Fourth slide" src="../images/art4.jpg" width="640" height="500"></center>
                     <div class="carousel-caption">
                         <h3>Caption heading 3</h3>
                         <p>Suspendisse ullamcorper massa eget eleifend iaculis.</p>
                     </div>
                 </div>
                 <div class="item">
-                    <center><img alt="Fifth slide" src="images/art5.jpg" width="640" height="500"></center>
+                    <center><img alt="Fifth slide" src="../images/art5.jpg" width="640" height="500"></center>
                     <div class="carousel-caption">
                         <h3>Caption heading 3</h3>
                         <p>Suspendisse ullamcorper massa eget eleifend iaculis.</p>
@@ -179,20 +192,19 @@
   $password = '';
   $dbname = 'hack';
   $conn = mysqli_connect($hostname, $username, $password, $dbname);
-  $sql = "SELECT ID,user_id,password FROM login";
+  $sql = "SELECT id,buyer_id,password FROM buyer";
   $result = mysqli_query($conn, $sql);
   if (mysqli_num_rows($result) > 0) {
     // output data of each row
 	$flag=0;
     while($row = mysqli_fetch_assoc($result)) {
-        if(strcmp($row['user_id'],$_POST['login'])==0 && strcmp($row["password"],$_POST['password'])==0)
+        if(strcmp($row['buyer_id'],$_POST['login'])==0 && strcmp($row["password"],$_POST['password'])==0)
 		{   session_start();
-		    $_SESSION['ID']=$row["ID"];
-			echo "<script>window.location.href='php/artist.php'</script>";
+		    $_SESSION['ID']=$row["id"];
+			echo "<script>window.location.href='php/buy1.php'</script>";
 		 }
 		 else
 		 {   $flag=1;
-			 
 		 }
        }
 	   if($flag==1){
@@ -210,15 +222,15 @@ if(isset($_POST['commit2'])){
     $password = '';
     $dbname = 'hack';
     $conn = mysqli_connect($hostname, $username, $password, $dbname);
-    $sql = "INSERT INTO `login`(`user_id`, `user_name`, `password`, `description`, `contact_no`, `impath`) VALUES ('".$_POST['login11']."','".$_POST['login12']."','".$_POST['login15']."','".$_POST['area1']."','".$_POST['login13']."','".$target_file."')";
+    $sql = "INSERT INTO `buyer`(`buyer_id`, `buyer_name`, `password`, `buyerimg`) VALUES ('".$_POST['login11']."','".$_POST['login12']."','".$_POST['login15']."','".$target_file."')";
     $result = mysqli_query($conn, $sql);
 	mysqli_close($conn);
 }
 
 ?>
 <?php
-if(isset($_POST['commit5'])){
-	echo "<script>window.location.href='php/buyer.php'</script>";
+if(isset($_POST['commit3'])){
+	echo "<script>window.location.href='..'</script>";
 }
 ?>
 </body>
