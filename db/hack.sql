@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 31, 2015 at 06:43 PM
+-- Generation Time: Oct 31, 2015 at 04:15 PM
 -- Server version: 5.6.16
 -- PHP Version: 5.5.11
 
@@ -31,16 +31,8 @@ CREATE TABLE IF NOT EXISTS `buyer` (
   `buyer_id` int(30) NOT NULL,
   `password` varchar(30) NOT NULL,
   `buyerimg` varchar(500) NOT NULL,
-  `buyer_name` varchar(30) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
-
---
--- Dumping data for table `buyer`
---
-
-INSERT INTO `buyer` (`id`, `buyer_id`, `password`, `buyerimg`, `buyer_name`) VALUES
-(1, 0, 'yyy', 'IMG_20151026_220406.jpg', 'Yash Shah');
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -69,15 +61,14 @@ CREATE TABLE IF NOT EXISTS `images` (
   `img_desc` varchar(500) NOT NULL,
   `img_rate` int(10) NOT NULL,
   PRIMARY KEY (`img_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data for table `images`
 --
 
 INSERT INTO `images` (`img_id`, `img_userid`, `imgpath`, `img_title`, `img_desc`, `img_rate`) VALUES
-(1, 3, 'full.jpg', 'abc', 'awcgaercg', 0),
-(2, 3, 'IMG_20151023_151113.jpg', 'yyy', 'hhh', 0);
+(1, 3, 'full.jpg', 'abc', 'awcgaercg', 0);
 
 -- --------------------------------------------------------
 
@@ -91,7 +82,7 @@ CREATE TABLE IF NOT EXISTS `login` (
   `user_name` varchar(80) NOT NULL,
   `password` varchar(80) NOT NULL,
   `description` text NOT NULL,
-  `contact_no` bigint(10) NOT NULL,
+  `contact_no` int(10) NOT NULL,
   `impath` varchar(80) NOT NULL,
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;

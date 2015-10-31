@@ -111,18 +111,15 @@
          
 		    <!--font color = "white"><h1 style="float:right">OnlineKalakar.com</h1></font-->
             
-<<<<<<< HEAD
-       
-=======
             
             <form name = "myForm3" action="buyer.php" method="post" enctype="multipart/form-data">
 		       <input type="submit" class="col-md-1 btn btn-warning" style="margin-left:10px;" name="commit3" value="BACK" class="btn btn-danger"  /> 
              </form> 
->>>>>>> a65b61a943924bb45ed4c95b1602e36a59678ad3
             <button class="btn btn-success col-md-1 col-md-offset-7	" data-toggle="modal" data-target="#myModal">Login</button>
             <button class="btn btn-danger col-md-1" style="margin-left:10px;" data-toggle="modal" data-target="#myModal2">Sign Up</button>
           </div>
-    </div><div class="container" style="margin-top:50px;margin-bottom:50px">
+    </div>
+	<div class="container" style="margin-top:50px;margin-bottom:50px">
         <div id="my-carousel" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators">
                 <li data-target="#my-carousel" data-slide-to="0" class="active"></li>
@@ -133,35 +130,35 @@
             </ol>
             <div class="carousel-inner">
                 <div class="item active">
-                    <center><img alt="First slide" src="../images/art1.jpg" width="640" height="500"></center>
+                    <center><img alt="First slide" src="../images/art1.jpg" width="440" height="300"></center>
                     <div class="carousel-caption">
                         <h3>Caption heading 1</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                     </div>
                 </div>
                 <div class="item">
-                    <center><img alt="Second slide" src="../images/art2.jpg" width="640" height="500"></center>
+                    <center><img alt="Second slide" src="../images/art2.jpg" width="440" height="300"></center>
                     <div class="carousel-caption">
                         <h3>Caption heading 2</h3>
                         <p>Morbi eget libero quis metus consectetur semper.</p>
                     </div>
                 </div>
                 <div class="item">
-                    <center><img alt="Third slide" src="../images/art3.JPG" width="640" height="500"></center>
+                    <center><img alt="Third slide" src="../images/art3.JPG" width="440" height="300"></center>
                     <div class="carousel-caption">
                         <h3>Caption heading 3</h3>
                         <p>Suspendisse ullamcorper massa eget eleifend iaculis.</p>
                     </div>
                 </div>
                 <div class="item">
-                    <center><img alt="Fourth slide" src="../images/art4.jpg" width="640" height="500"></center>
+                    <center><img alt="Fourth slide" src="../images/art4.jpg" width="440" height="300"></center>
                     <div class="carousel-caption">
                         <h3>Caption heading 3</h3>
                         <p>Suspendisse ullamcorper massa eget eleifend iaculis.</p>
                     </div>
                 </div>
                 <div class="item">
-                    <center><img alt="Fifth slide" src="../images/art5.jpg" width="640" height="500"></center>
+                    <center><img alt="Fifth slide" src="../images/art5.jpg" width="440" height="300"></center>
                     <div class="carousel-caption">
                         <h3>Caption heading 3</h3>
                         <p>Suspendisse ullamcorper massa eget eleifend iaculis.</p>
@@ -176,6 +173,10 @@
             </a>
         </div>
     </div>
+	<font face = 'comic sans ms' size = '5'>
+	<p align = 'center'> Buyers Can Place a bid on the Products Available.</p>
+	<p align = 'center'> Interested can register themselves.</p>
+	</font>
     
     <?php
   if(isset($_POST['commit']))
