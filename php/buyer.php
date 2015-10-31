@@ -112,24 +112,13 @@
 		    <!--font color = "white"><h1 style="float:right">OnlineKalakar.com</h1></font-->
             
             
-            <form name = "myForm3" action="index.php" method="post" enctype="multipart/form-data">
+            <form name = "myForm3" action="buyer.php" method="post" enctype="multipart/form-data">
 		       <input type="submit" class="col-md-1 btn btn-warning" style="margin-left:10px;" name="commit3" value="BACK" class="btn btn-danger"  /> 
-               </form> 
+             </form> 
             <button class="btn btn-success col-md-1 col-md-offset-7	" data-toggle="modal" data-target="#myModal">Login</button>
             <button class="btn btn-danger col-md-1" style="margin-left:10px;" data-toggle="modal" data-target="#myModal2">Sign Up</button>
-          
-    
-	
-            
-            
-           
-          
-  
-        </div>
-    </div>
-    
-    
-    <div class="container" style="margin-top:50px;margin-bottom:50px">
+          </div>
+    </div><div class="container" style="margin-top:50px;margin-bottom:50px">
         <div id="my-carousel" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators">
                 <li data-target="#my-carousel" data-slide-to="0" class="active"></li>
@@ -200,8 +189,8 @@
     while($row = mysqli_fetch_assoc($result)) {
         if(strcmp($row['buyer_id'],$_POST['login'])==0 && strcmp($row["password"],$_POST['password'])==0)
 		{   session_start();
-		    $_SESSION['ID']=$row["id"];
-			echo "<script>window.location.href='php/buy1.php'</script>";
+		    $_SESSION['ID2']=$row["id"];
+			echo "<script>window.location.href='buy1.php'</script>";
 		 }
 		 else
 		 {   $flag=1;
@@ -226,11 +215,8 @@ if(isset($_POST['commit2'])){
     $result = mysqli_query($conn, $sql);
 	mysqli_close($conn);
 }
-
-?>
-<?php
 if(isset($_POST['commit3'])){
-	echo "<script>window.location.href='..'</script>";
+	echo "<script>window.location.href='../index.php'</script>";
 }
 ?>
 </body>
