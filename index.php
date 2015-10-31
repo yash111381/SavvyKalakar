@@ -106,6 +106,7 @@
     
     <div class="container" style="background-color:#000;padding-bottom:10px;border:3px dotted #FFFFFF;">
         <div class="row" style="margin-top:10px;">
+		    <!--font color = "white"><h1 style="float:right">OnlineKalakar.com</h1></font-->
             <button class="btn btn-success col-md-1 col-md-offset-9" data-toggle="modal" data-target="#myModal">Login</button>
             <button class="btn btn-danger col-md-1" style="margin-left:10px;" data-toggle="modal" data-target="#myModal2">Sign Up</button>
         </div>
@@ -179,6 +180,7 @@
   $result = mysqli_query($conn, $sql);
   if (mysqli_num_rows($result) > 0) {
     // output data of each row
+	$flag=0;
     while($row = mysqli_fetch_assoc($result)) {
         if(strcmp($row['user_id'],$_POST['login'])==0 && strcmp($row["password"],$_POST['password'])==0)
 		{   session_start();
@@ -186,10 +188,13 @@
 			echo "<script>window.location.href='php/artist.php'</script>";
 		 }
 		 else
-		 {
-			 echo "<script>alert('error');</script>";
+		 {   $flag=1;
+			 //echo "<script>alert('error');</script>";
 		 }
        }
+	   if($flag==1){
+		   echo "<script>alert('error');</script>";
+	   }
 	}
 	mysqli_close($conn);
 }
