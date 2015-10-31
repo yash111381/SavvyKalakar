@@ -31,11 +31,25 @@ new(function(){});var e=f.$JssorEasing$={tc:function(a){return-b.cos(a*b.PI)/2+.
 <div data-u="slides" style="cursor: default; position: relative; top: 0px; left: 0px; width: 800px; height: 356px; overflow: hidden;">
 <?php
 
+$hostname = 'localhost';
+$username = 'root';
+$password = '';
+$dbname = 'hack';
+$conn = mysqli_connect($hostname, $username, $password, $dbname);
+$flag = 0;
+$sql = "SELECT * FROM images";
+$result = mysqli_query($conn, $sql);
+if (mysqli_num_rows($result) > 0) {
+    // output data of each row
+while($row = mysqli_fetch_assoc($result)) {
+	echo "<div data-p='144.50' style='display: none;'>
+<img data-u='image' src='../images/".$row['imgpath']."' />
+<img data-u='thumb' src='../images/".$row['imgpath']."' />
+</div>";
+}
+}
+mysqli_close($conn);
  ?>
-<div data-p="144.50" style="display: none;">
-<img data-u="image" src="../images/01.jpg" />
-<img data-u="thumb" src="../images/thumb-01.jpg" />
-</div>
 </div>
 <!-- Thumbnail Navigator -->
 <div data-u="thumbnavigator" class="jssort01" style="position:absolute;left:0px;bottom:0px;width:800px;height:100px;" data-autocenter="1">
