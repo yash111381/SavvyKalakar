@@ -2,9 +2,55 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Untitled Document</title>
+<title>Savvy Kalakar</title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
 </head>
 
 <body>
+	<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModal-label" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h3 class="modal-title" id="myModal-label">Login</h3>
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure you want to submit this album?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary">Login</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+     <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModal2-label" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h3 class="modal-title" id="myModal2-label">Sign Up</h3>
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure you want to submit this album?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary">Sign Up</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    <div class="container">
+        <div class="row" style="margin-top:10px;">
+            <button class="btn btn-success col-md-1 col-md-offset-8" data-toggle="modal" data-target="#myModal">Login</button>
+            <button class="btn btn-danger col-md-1 col-md-offset-1" data-toggle="modal" data-target="#myModal2">Sign Up</button>
+        </div>
+    </div>
 </body>
 </html>
