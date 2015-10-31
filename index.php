@@ -3,7 +3,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Savvy Kalakar</title>
+	<link rel="stylesheet" type="text/css" href="css/style1.css"/>
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+    
+    
 </head>
 
 <body>
@@ -17,11 +20,21 @@
                     <h3 class="modal-title" id="myModal-label">Login</h3>
                 </div>
                 <div class="modal-body">
-                    <p>Are you sure you want to submit this album?</p>
+                   <form action="php/validateLogin.php" method="post" enctype="multipart/form-data">
+  <section class="container">
+    <div class="login">
+        <p><input type="text" name="login" value="" placeholder="Username or Email"></p>
+        <p><input type="password" name="password" value="" placeholder="Password"></p>
+     <!--   <p class="submit"><input type="submit" name="commit" value="Login"></p>	-->
+    </div>
+  </section>
+  
                 </div>
                 <div class="modal-footer">
+                
                     <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                    <button type="button" class="btn btn-primary">Login</button>
+                    <input type="submit" name="commit" value="Login" class="btn btn-success" />
+                    </form>
                 </div>
             </div>
         </div>
