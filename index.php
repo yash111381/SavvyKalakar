@@ -20,7 +20,7 @@
                     <h3 class="modal-title" id="myModal-label">Login</h3>
                 </div>
                 <div class="modal-body">
-                   <form action="php/validateLogin.php" method="post" enctype="multipart/form-data">
+                   <form action="index.php" method="post" enctype="multipart/form-data">
   <section class="container">
     <div class="login">
         <p><input type="text" name="login" value="" placeholder="Username"></p>
@@ -122,6 +122,31 @@
         </div>
     </div>
     
-    
+    <?php
+  if(isset($_POST['commit']))
+{
+  $hostname = 'localhost';
+  $username = 'root';
+  $password = '';
+  $dbname = 'hack';
+  $conn = mysqli_connect($hostname, $username, $password, $dbname);
+  $sql = "SELECT ID,user_id,password FROM login";
+  $result = mysqli_query($conn, $sql);
+  if (mysqli_num_rows($result) > 0) {
+    // output data of each row
+    while($row = mysqli_fetch_assoc($result)) {
+        if(strcmp($row['user_id'],$_POST['login'])==0 && strcmp($row["password"],$_POST['password'])==0)
+		{   session_start();
+		    $_SESSION['ID']=$row["ID"];
+			echo "<script>window.location.href='php/artist.php'</script>";
+		 }
+		 else
+		 {
+			 echo "<script>alert('error');</script>";
+		 }
+       }
+	}
+}
+?>
 </body>
 </html>
