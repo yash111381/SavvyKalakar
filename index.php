@@ -23,7 +23,7 @@
                    <form action="php/validateLogin.php" method="post" enctype="multipart/form-data">
   <section class="container">
     <div class="login">
-        <p><input type="text" name="login" value="" placeholder="Username or Email"></p>
+        <p><input type="text" name="login" value="" placeholder="Username"></p>
         <p><input type="password" name="password" value="" placeholder="Password"></p>
      <!--   <p class="submit"><input type="submit" name="commit" value="Login"></p>	-->
     </div>
@@ -59,11 +59,69 @@
     </div>
     
     
-    <div class="container">
+    <div class="container" style="background-color:#000;padding-bottom:10px;border:3px dotted #FFFFFF;">
         <div class="row" style="margin-top:10px;">
-            <button class="btn btn-success col-md-1 col-md-offset-8" data-toggle="modal" data-target="#myModal">Login</button>
-            <button class="btn btn-danger col-md-1 col-md-offset-1" data-toggle="modal" data-target="#myModal2">Sign Up</button>
+            <button class="btn btn-success col-md-1 col-md-offset-9" data-toggle="modal" data-target="#myModal">Login</button>
+            <button class="btn btn-danger col-md-1" style="margin-left:10px;" data-toggle="modal" data-target="#myModal2">Sign Up</button>
         </div>
     </div>
+    
+    
+    <div class="container" style="margin-top:50px;margin-bottom:50px">
+        <div id="my-carousel" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#my-carousel" data-slide-to="0" class="active"></li>
+                <li data-target="#my-carousel" data-slide-to="1"></li>
+                <li data-target="#my-carousel" data-slide-to="2"></li>
+                <li data-target="#my-carousel" data-slide-to="3"></li>
+                <li data-target="#my-carousel" data-slide-to="4"></li>
+            </ol>
+            <div class="carousel-inner">
+                <div class="item active">
+                    <center><img alt="First slide" src="images/art1.jpg" width="640" height="500"></center>
+                    <div class="carousel-caption">
+                        <h3>Caption heading 1</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <center><img alt="Second slide" src="images/art2.jpg" width="640" height="500"></center>
+                    <div class="carousel-caption">
+                        <h3>Caption heading 2</h3>
+                        <p>Morbi eget libero quis metus consectetur semper.</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <center><img alt="Third slide" src="images/art3.JPG" width="640" height="500"></center>
+                    <div class="carousel-caption">
+                        <h3>Caption heading 3</h3>
+                        <p>Suspendisse ullamcorper massa eget eleifend iaculis.</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <center><img alt="Fourth slide" src="images/art4.jpg" width="640" height="500"></center>
+                    <div class="carousel-caption">
+                        <h3>Caption heading 3</h3>
+                        <p>Suspendisse ullamcorper massa eget eleifend iaculis.</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <center><img alt="Fifth slide" src="images/art5.jpg" width="640" height="500"></center>
+                    <div class="carousel-caption">
+                        <h3>Caption heading 3</h3>
+                        <p>Suspendisse ullamcorper massa eget eleifend iaculis.</p>
+                    </div>
+                </div>
+            </div>
+            <a class="left carousel-control" href="#my-carousel" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+            </a>
+            <a class="right carousel-control" href="#my-carousel" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right"></span>
+            </a>
+        </div>
+    </div>
+    
+    
 </body>
 </html>
