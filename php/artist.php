@@ -50,8 +50,8 @@ $imgpath=$row["impath"];
             <a href="#">
             
                 <img style="margin-left:20px;float:left;" class="media-object" src="<?php echo "../images/".$imgpath; ?>" width="350" height="300">
-               
-            </a>
+				
+				</a>
              
         </div>
         <div class="media-body" >
