@@ -196,7 +196,7 @@
             </div>
         </div>
     </header>
-	<h3 align = "center"><i>You can view our products <a href="php/view1.php">here</a></i></h3>
+	<h3 align = "center"><i>You can view our products <a href="php/view2.php">here</a></i></h3>
 
     <section class="bg-primary" id="about">
         <div class="container">

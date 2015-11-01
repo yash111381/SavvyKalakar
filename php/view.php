@@ -1,3 +1,6 @@
+<?
+session_start();
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -67,6 +70,7 @@ border:3px red dotted;
 	</style>
 </head>
 <body style="padding:0px; margin:0px; background-color:#fff;">
+<form action="view.php" method="post" enctype="multipart/form-data">
 
 <h1 align = "center"><font face = "monotype corsiva">PRODUCT DETAILS:</font></h1>
 
@@ -75,7 +79,7 @@ $servername = "localhost";
 $username = "root";
 $password = "";
 $dbname="hack";
-
+session_start();
 // Create connection
 $conn = mysqli_connect($servername, $username, $password, $dbname);
 // Check connection
@@ -136,12 +140,17 @@ if (mysqli_num_rows($result) > 0) {
     </tr>
    <tr>
       <td width="30%" id="heads"><strong>Highest Bid:</strong></td>
-	  <td width="70%" id="detail"></td>
-     </tr>
-	 <tr>
-      <td width="30%" id="heads"><strong>Place Bid:</strong></td>
-	  <td width="70%" id="detail"><input type="text" name="bidvalue" placeholder="Enter Your Bid"><input type="submit" name = ""></td>
-     </tr>
+	  <td width="70%" id="detail"><?php 
+       $sql3 = "SELECT MAX(bid_amount) FROM bid WHERE img_id = ".$row["img_id"];
+       $result3 = mysqli_query($conn, $sql3);
+	   $row3 = mysqli_fetch_assoc($result3);
+	   echo $row3['MAX(bid_amount)'];
+	  ?></td>
+   </tr>
+   <tr>
+   		<td width="30%" id="heads"><strong>View Product:</strong></td>
+	  <td width="70%" id="detail"><a href="viewfinal.php?v=<?php echo $row['img_id']; ?>" class="btn btn-success">View Product</a></td>
+   </tr>
 
 
 </table>
@@ -149,7 +158,17 @@ if (mysqli_num_rows($result) > 0) {
 <img id="userPhoto" style="margin-top:50px;" src="<?php echo $maruphoto; ?>" width="300" height="200"/>
 
 <hr>
-<?php    	 
+<?php   
+
+
+
+if(isset($_POST['placebid'])){
+  $sql2 = "INSERT INTO `bid`(`buyer_id`, `img_id`, `bid_amount`) VALUES ('".$_SESSION['ID2']."','".$row['img_id']."','".$_POST['bidvalue']."')";
+  $result2 = mysqli_query($conn, $sql2);
+}
+
+
+ 	 
    }
 
 } else {
@@ -159,28 +178,9 @@ mysqli_close($conn);?>
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<form action="view.php" method="post" enctype="multipart/form-data">
-
-
-
-
-
-
 <!-- #endregion Jssor Slider End -->
 </form>
+
+
 </body>
 </html>

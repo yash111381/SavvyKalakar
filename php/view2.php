@@ -1,7 +1,5 @@
-<?php 
+<?
 session_start();
-$var = $_SESSION['ID2'];
-$img_id=$_GET["v"];
 ?>
 <!DOCTYPE html>
 <html>
@@ -9,13 +7,19 @@ $img_id=$_GET["v"];
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title></title>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
-    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+   <link href="../css/test.css" rel="stylesheet">
     <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
     <!--script src="src/bootstrap-rating-input.js"></script-->
     <script src="../js/bootstrap-rating-input.min.js"></script>
-	    <style type="text/css">
+	<script>
+      $(function(){
+        $('input').on('change', function(){
+          alert("Changed: " + $(this).val())
+        });
+      });
+    </script>
+    <style type="text/css">
 	@charset "utf-8";
 /* CSS Document */
 body{background-image:url(../images/bbb.jpg);}
@@ -64,20 +68,10 @@ border:3px red dotted;
 }
 
 	</style>
-    <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
 </head>
 <body style="padding:0px; margin:0px; background-color:#fff;">
-<form action="view1.php?v=<?php echo $img_id; ?>" method="post" enctype="multipart/form-data">
+<form action="view2.php" method="post" enctype="multipart/form-data">
 
-<script src="../js/bootstrap.min.js"></script>
-<script src="../js/jquery-2.1.4.min.js"></script>
-<script>
-      $(function(){
-        $('input').on('change', function(){
-          var x = $(this).val();
-        });
-      });
-    </script>
 <h1 align = "center"><font face = "monotype corsiva">PRODUCT DETAILS:</font></h1>
 
 <?php
@@ -85,22 +79,42 @@ $servername = "localhost";
 $username = "root";
 $password = "";
 $dbname="hack";
-
+session_start();
 // Create connection
 $conn = mysqli_connect($servername, $username, $password, $dbname);
 // Check connection
 if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
-$sql = "SELECT * FROM images where img_id = ".$img_id;
+$sql = "SELECT * FROM images";
 $result = mysqli_query($conn, $sql);
+
+
+//header("Location: Website/login.php");
+//echo "<h1>Hello</h1>";
+//die();
+?>
+
+
+
+
+
+
+
+
+
+<?php
 if (mysqli_num_rows($result) > 0) {
     // output data of each row
    while($row = mysqli_fetch_assoc($result)){ 
    $maruphoto="../images/".$row["imgpath"];
    $imgtitle=$row["img_title"];
    $imgdesc=$row['img_desc'];
- 	?>
+   $imgrate=$row['img_rate'];?>
+    
+<!--<h2 id="update"> <a href=''>UPDATE</a></h2>
+<h2 id="delete"> <a href=''>DELETE</a></h2>
+-->
 
 <table id="userInfo" width="60%" style="margin-top:50px;"  cellspacing="10" cellpadding="5" align="left">
   	<tr id="tableHead">
@@ -119,18 +133,24 @@ if (mysqli_num_rows($result) > 0) {
        <?php echo $imgdesc; ?></td>
     </tr>
 
-  
-  
-  
-
+  <tr>
+      <td width="30%" id="heads"><strong>Current Product-Rating:</strong></td>
+      <td width="70%" id="detail">
+       <?php echo "2"; ?></td>
+    </tr>
    <tr>
-      <td width="30%" id="heads"><strong>Rate the Product:</strong></td>
-      <td width="70%" id="detail"><input type="number" name="your_awesome_parameter" id="some_id" class="rating" data-clearable="remove" data-icon-lib="fa" data-active-icon="fa-heart" data-inactive-icon="fa-heart-o" data-clearable-icon="fa-trash-o"/></td>
+      <td width="30%" id="heads"><strong>Highest Bid:</strong></td>
+	  <td width="70%" id="detail"><?php 
+       $sql3 = "SELECT MAX(bid_amount) FROM bid WHERE img_id = ".$row["img_id"];
+       $result3 = mysqli_query($conn, $sql3);
+	   $row3 = mysqli_fetch_assoc($result3);
+	   echo $row3['MAX(bid_amount)'];
+	  ?></td>
    </tr>
-	 <tr>
-      <td width="30%" id="heads"><strong>Final Rate:</strong></td>
-	  <td width="70%" id="detail"><input type="submit" name = "submit1" value = "Submit"></td>
-     </tr>
+   <tr>
+   		<td width="30%" id="heads"><strong>View Product:</strong></td>
+	  <td width="70%" id="detail"><a href="view1.php?v=<?php echo $row['img_id']; ?>" class="btn btn-success">View Product</a></td>
+   </tr>
 
 
 </table>
@@ -138,26 +158,29 @@ if (mysqli_num_rows($result) > 0) {
 <img id="userPhoto" style="margin-top:50px;" src="<?php echo $maruphoto; ?>" width="300" height="200"/>
 
 <hr>
-<?php    	 
+<?php   
+
+
+
+if(isset($_POST['placebid'])){
+  $sql2 = "INSERT INTO `bid`(`buyer_id`, `img_id`, `bid_amount`) VALUES ('".$_SESSION['ID2']."','".$row['img_id']."','".$_POST['bidvalue']."')";
+  $result2 = mysqli_query($conn, $sql2);
+}
+
+
+ 	 
    }
 
 } else {
   
 }
-?>
+mysqli_close($conn);?>
 
-<?php 
-if(isset($_POST['submit1']))
-{
-    $var = $_POST['your_awesome_parameter'];
-	$var = $var+1;
-    $sql1 = "INSERT INTO `rate`(`img_id`, `rate_value`) VALUES ('".$img_id."','".$var."') ";
-$result1 = mysqli_query($conn, $sql1);
-	 
-}
-mysqli_close($conn);
-?>
 
+
+<!-- #endregion Jssor Slider End -->
 </form>
+
+
 </body>
 </html>
