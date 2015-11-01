@@ -133,9 +133,12 @@ if (mysqli_num_rows($result) > 0) {
 
 </table>
 
+  
+
 <img id="userPhoto" style="margin-top:50px;" src="<?php echo $maruphoto; ?>" width="300" height="200"/>
 
 <hr>
+<h3 style="margin-left:px;"> Send an SMS of 'Buy product_title' to book your product</h3><br>
 <?php    	 
    }
 
