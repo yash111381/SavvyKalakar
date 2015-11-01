@@ -210,7 +210,7 @@
 if(isset($_POST['commit2'])){
 	$target_file =  $_FILES["fileToUpload"]["name"];
     $imgi = $_FILES["fileToUpload"]["tmp_name"];
-	move_uploaded_file($imgi,'images/'.$target_file);
+	move_uploaded_file($imgi,'../images/'.$target_file);
 	$hostname = 'localhost';
     $username = 'root';
     $password = '';

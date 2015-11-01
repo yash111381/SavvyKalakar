@@ -5,11 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title></title>
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
-    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+   <link href="../css/test.css" rel="stylesheet">
     <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
     <!--script src="src/bootstrap-rating-input.js"></script-->
     <script src="../js/bootstrap-rating-input.min.js"></script>
+	<script>
+      $(function(){
+        $('input').on('change', function(){
+          alert("Changed: " + $(this).val())
+        });
+      });
+    </script>
     <style type="text/css">
 	@charset "utf-8";
 /* CSS Document */
@@ -126,19 +132,15 @@ if (mysqli_num_rows($result) > 0) {
   <tr>
       <td width="30%" id="heads"><strong>Current Product-Rating:</strong></td>
       <td width="70%" id="detail">
-       <?php echo $imgrate; ?></td>
+       <?php echo "2"; ?></td>
     </tr>
-   <tr>
-      <td width="30%" id="heads"><strong>Rate the Product:</strong></td>
-      <td width="70%" id="detail"><input type="number" name="your_awesome_parameter" id="some_id" class="rating" data-clearable="remove" data-icon-lib="fa" data-active-icon="fa-heart" data-inactive-icon="fa-heart-o" data-clearable-icon="fa-trash-o"/></td>
-   </tr>
    <tr>
       <td width="30%" id="heads"><strong>Highest Bid:</strong></td>
 	  <td width="70%" id="detail"></td>
      </tr>
 	 <tr>
       <td width="30%" id="heads"><strong>Place Bid:</strong></td>
-	  <td width="70%" id="detail"><input type="submit" name = ""></td>
+	  <td width="70%" id="detail"><input type="text" name="bidvalue" placeholder="Enter Your Bid"><input type="submit" name = ""></td>
      </tr>
 
 
