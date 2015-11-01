@@ -1,6 +1,4 @@
 <?php 
-session_start();
-$var = $_SESSION['ID2'];
 $img_id=$_GET["v"];
 ?>
 <!DOCTYPE html>
